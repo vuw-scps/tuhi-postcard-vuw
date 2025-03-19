@@ -79,22 +79,23 @@ contact: (phone: "00112233",
 email: "scienceinsociety\@vuw.ac.nz",
 url: "wgtn.ac.nz"),
 pic: none,
-logo: none,
+logo-bytes: none,
+logo-width: 4.21cm,
 colours: (rgb(110,81,55), rgb(113, 135, 121)),
 ) = {
 
-let original = read(logo.source)
-let bright-replace = original.replace(
+
+let bright-replace = logo-bytes.replace(
   "black", // white
   colours.at(1).to-hex(),
 )
-let dark-replace = original.replace(
+let dark-replace = logo-bytes.replace(
   "black", // white
   colours.at(0).to-hex(),
 )
 // image.decode(original)
-let logo-bright = image(bytes(bright-replace), width: logo.width)
-let logo-dark = image(bytes(dark-replace), width: logo.width)
+let logo-bright = image(bytes(bright-replace), width: logo-width)
+let logo-dark = image(bytes(dark-replace), width: logo-width)
 
 // let logo-dark = logo
   
